@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Cliques</title>
+</head>
+
+<body>
+
+    <h1>Contador de Cliques!</h1>
+    <button onclick="incrementar()">Incrementar</button>
+    <button onclick="decrementar()">Decrementar</button>
+    <button onclick="zerar()">Zerar Contador</button>
+
+    <p id="contadorParagrafo">O contador está com 0 cliques!</p>
+
+    <script>
+        let contador = 0; //Variável para armazenar cliques
+
+        function incrementar() {
+            contador++; // Acrescenta no contador
+            atualizarContador(); //Atualiza texto no parágrafo
+        }
+        
+        function decrementar() {
+            if (contador > 0) {
+                contador--; //Remove valor do contador caso seja maior que zero.
+                atualizarContador(); //Atualiza texto no parágrafo.
+            } 
+        }
+
+        function zerar() {
+            contador = 0; //Reseta o contador
+            atualizarContador(); //Atualiza texto no parágrafo.
+        }
+
+        function atualizarContador() {
+            const contadorParagrafo = document.getElementById("contadorParagrafo");
+        
+            if (contador === 0) {
+                contadorParagrafo.style.display = "none"; //Ocultar parágrafo se contador for zero.
+            } else { 
+                contadorParagrafo.style.display = "block"; //Exibe parágrafo se contador for diferente de zero.
+                contadorParagrafo.textContent = `O contador está com ${contador} clique${contador !== 1 ? "s" : ""}`; //Atualiza texto no parágrafo.
+            }
+        }
+    </script>
+</body>
+
+</html>
